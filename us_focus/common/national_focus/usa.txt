@@ -1,0 +1,80 @@
+focus_tree = {
+	id = usa_focus
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = USA
+		}
+	}
+	
+	default = no
+	
+	continuous_focus_position = { x = 50 y = 500 }
+	
+	############################################################
+	
+	focus = {
+		id = USA_first_national_focus
+		icon = GFX_goal_generic_amphibious_assault
+		x = 5
+		y = 0
+		#prerequisite = { focus = USA_expand_the_USMC }
+		#relative_position_id = USA_expand_the_USMC
+		cost = 5
+		
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			NOT = { is_in_faction_with = FRA }
+			NOT = { is_in_faction_with = ARG }
+		}
+		
+		completion_reward = {
+			add_political_power = 120
+		}
+		
+		bypass = {
+		}
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		
+	}
+	
+	focus = {
+		id = USA_second_national_focus
+		icon = GFX_goal_generic_amphibious_assault
+		x = 1
+		y = 1
+		prerequisite = { focus = USA_first_national_focus }
+		relative_position_id = USA_first_national_focus
+		cost = 5
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		available = {
+			NOT = { is_in_faction_with = FRA }
+			NOT = {is_in_faction_with = ARG }
+		}
+		
+		bypass = {
+			
+		}
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		completion_reward = {
+			add_stability = 0.05
+		}
+	}
+}
